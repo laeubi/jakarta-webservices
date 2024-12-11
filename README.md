@@ -1,7 +1,7 @@
 # jakarta-webservices
 Repository for the jakarta-webservices osgi implementation
 
-## How to build
+## How to build   
 
 Currently the OSGi specification is not officially release. Because of this you need to perform the following steps to build this project:
 
