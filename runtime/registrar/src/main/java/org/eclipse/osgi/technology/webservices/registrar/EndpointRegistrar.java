@@ -47,6 +47,9 @@ import org.osgi.service.webservice.whiteboard.WebserviceWhiteboardConstants;
 import jakarta.xml.ws.handler.Handler;
 import jakarta.xml.ws.handler.MessageContext;
 
+/**
+ * Endpoint registrar implementation
+ */
 @Component(immediate = true, service = { WebserviceServiceRuntime.class })
 @Capability(namespace = ImplementationNamespace.IMPLEMENTATION_NAMESPACE, //
         name = WebserviceWhiteboardConstants.WEBSERVICE, //
@@ -61,12 +64,24 @@ public class EndpointRegistrar implements WebserviceServiceRuntime {
     private Map<EndpointPublisher, ServiceRanking> endpointPublisherMap = new ConcurrentHashMap<>();
     private ComponentContext context;
 
+    /**
+     * contructor
+     *
+     * @param logger  logger
+     * @param context context
+     */
     @Activate
     public EndpointRegistrar(@Reference(service = LoggerFactory.class) Logger logger, ComponentContext context) {
         this.logger = logger;
         this.context = context;
     }
 
+    /**
+     * adds an endpoint
+     *
+     * @param publisher  publisher
+     * @param properties properties
+     */
     @Reference(cardinality = ReferenceCardinality.AT_LEAST_ONE, policy = ReferencePolicy.DYNAMIC)
     public void addEndpointPublisher(EndpointPublisher publisher, Map<String, ?> properties) {
         ServiceRanking ranking = new ServiceRanking() {
@@ -90,12 +105,22 @@ public class EndpointRegistrar implements WebserviceServiceRuntime {
         updateAll();
     }
 
+    /**
+     * removes endpoint
+     *
+     * @param publisher publisher
+     */
     public void removeEndpointPublisher(EndpointPublisher publisher) {
         ServiceRanking ranking = endpointPublisherMap.remove(publisher);
         logger.debug("UNBINDING publisher={} with ranking={}", publisher, ranking);
         updateAll();
     }
 
+    /**
+     * bind endpoint
+     *
+     * @param endpointImplementorReference ref
+     */
     @Reference(service = AnyService.class, target = "(" + WebserviceWhiteboardConstants.WEBSERVICE_ENDPOINT_IMPLEMENTOR
             + "=true)", cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, policyOption = ReferencePolicyOption.GREEDY)
     public void bindEndpointImplementor(ServiceReference<?> endpointImplementorReference) {
@@ -108,6 +133,11 @@ public class EndpointRegistrar implements WebserviceServiceRuntime {
         registration.refresh();
     }
 
+    /**
+     * unbind endpoint
+     *
+     * @param endpointImplementorReference ref
+     */
     public void unbindEndpointImplementor(ServiceReference<?> endpointImplementorReference) {
         logger.debug("UNBINDING implementor={}", endpointImplementorReference);
         EndpointRegistration registration = endpointRegistrations.remove(endpointImplementorReference);
@@ -116,6 +146,11 @@ public class EndpointRegistrar implements WebserviceServiceRuntime {
         }
     }
 
+    /**
+     * add handler
+     *
+     * @param handler handler
+     */
     @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC)
     public void addHandler(ServiceReference<Handler<? extends MessageContext>> handler) {
         logger.debug("UPDATE handler={}", handler);
@@ -126,6 +161,11 @@ public class EndpointRegistrar implements WebserviceServiceRuntime {
         updateAll();
     }
 
+    /**
+     * update handler
+     *
+     * @param handler handler
+     */
     public void updateHandler(ServiceReference<Handler<? extends MessageContext>> handler) {
         logger.debug("UPDATE handler={}", handler);
         HandlerInfo info = handlerMap.put(handler, new HandlerInfo(handler, context.getBundleContext()));
@@ -135,6 +175,11 @@ public class EndpointRegistrar implements WebserviceServiceRuntime {
         updateAll();
     }
 
+    /**
+     * remove handler
+     *
+     * @param handler handler
+     */
     public void removeHandler(ServiceReference<Handler<? extends MessageContext>> handler) {
         logger.debug("REMOVE handler={}", handler);
         HandlerInfo info = handlerMap.remove(handler);
