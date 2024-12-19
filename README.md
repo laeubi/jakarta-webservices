@@ -3,11 +3,17 @@ Repository for the jakarta-webservices osgi implementation
 
 ## How to build
 
-Currently the OSGi specification is not officially release. Because of this you need to perform the following steps to build this project:
+You need to perform the following steps to build this project:
 
-1. fetch github PR https://github.com/osgi/osgi/pull/659
-2. run `./gradlew :build :publish`
+1. fetch the code
+2. run `mvn verify`
 
-This will publish the required artifacts into your local maven repository.
+## How to contribute
 
-After that you can run the build with `mvn verify`
+Just open a PR but make sure to execute the following command first to ensure all formating rules are applied:
+
+`mvn editorconfig:format`
+
+Also check javadoc errors with
+
+`mvn package -Pjavadoc-check`

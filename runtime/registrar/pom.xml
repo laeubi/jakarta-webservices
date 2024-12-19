@@ -26,16 +26,6 @@
       <artifactId>jakarta.xml.ws-api</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.osgi-technology.webservices</groupId>
-      <artifactId>org.eclipse.osgi.technology.webservices.api</artifactId>
-      <version>1.0.0-SNAPSHOT</version>
-      <scope>provided</scope>
-    </dependency>
-    <!--<dependency>-->
-    <!--<groupId>org.osgi</groupId>-->
-    <!--<artifactId>org.osgi.service.webservice</artifactId>-->
-    <!--</dependency>-->
-    <dependency>
       <groupId>org.osgi</groupId>
       <artifactId>org.osgi.annotation.bundle</artifactId>
     </dependency>

@@ -39,6 +39,11 @@ public class GenericPublisher implements EndpointPublisher {
 
     private Logger logger;
 
+    /**
+     * constructor
+     *
+     * @param logger injected
+     */
     @Activate
     public GenericPublisher(@Reference(service = LoggerFactory.class) Logger logger) {
         this.logger = logger;
