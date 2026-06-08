@@ -30,7 +30,7 @@
  */
 
 @Version(WEBSERVICE_SPECIFICATION_VERSION + ".1")
-@org.osgi.annotation.bundle.Export(substitution = org.osgi.annotation.bundle.Export.Substitution.PROVIDER)
+@org.osgi.annotation.bundle.Export(substitution = org.osgi.annotation.bundle.Export.Substitution.NOIMPORT)
 package org.osgi.service.webservice.runtime.dto;
 
 import static org.osgi.service.webservice.whiteboard.WebserviceWhiteboardConstants.WEBSERVICE_SPECIFICATION_VERSION;
