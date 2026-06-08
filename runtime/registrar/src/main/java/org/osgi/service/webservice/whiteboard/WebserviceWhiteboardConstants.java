@@ -71,4 +71,9 @@ public class WebserviceWhiteboardConstants {
      */
     public static final String WEBSERVICE_SPECIFICATION_VERSION = "1.0";
 
+    /**
+     * Specification namespace
+     */
+    public static final String WEBSERVICE_IMPLEMENTATION = "osgi.webservice";
+
 }

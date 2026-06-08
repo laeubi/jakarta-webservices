@@ -58,7 +58,7 @@ import jakarta.xml.ws.handler.MessageContext;
  */
 @Component(immediate = true, service = {})
 @Capability(namespace = ImplementationNamespace.IMPLEMENTATION_NAMESPACE, //
-        name = WebserviceWhiteboardConstants.WEBSERVICE, //
+        name = WebserviceWhiteboardConstants.WEBSERVICE_IMPLEMENTATION, //
         version = WebserviceWhiteboardConstants.WEBSERVICE_SPECIFICATION_VERSION, uses = { Handler.class,
                 Endpoint.class })
 @Capability(namespace = ServiceNamespace.SERVICE_NAMESPACE, attribute = {ServiceNamespace.CAPABILITY_OBJECTCLASS_ATTRIBUTE
