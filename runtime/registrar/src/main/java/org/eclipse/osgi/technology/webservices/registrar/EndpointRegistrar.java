@@ -60,7 +60,7 @@ import jakarta.xml.ws.handler.MessageContext;
 @Capability(namespace = ImplementationNamespace.IMPLEMENTATION_NAMESPACE, //
         name = WebserviceWhiteboardConstants.WEBSERVICE_IMPLEMENTATION, //
         version = WebserviceWhiteboardConstants.WEBSERVICE_SPECIFICATION_VERSION, uses = { Handler.class,
-                Endpoint.class })
+                Endpoint.class, WebserviceWhiteboardConstants.class })
 @Capability(namespace = ServiceNamespace.SERVICE_NAMESPACE, attribute = {ServiceNamespace.CAPABILITY_OBJECTCLASS_ATTRIBUTE
         + ":List<String>=\"org.osgi.service.webservice.runtime.WebserviceServiceRuntime\"" }, uses = {
                 WebserviceServiceRuntime.class, RuntimeDTO.class })

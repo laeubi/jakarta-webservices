@@ -48,5 +48,6 @@ header:
     - '**/*.svg'
     - 'api/**'
     - '**/httpwhiteboard/src/main/java/org/eclipse/osgi/technology/webservices/httpwhiteboard/wsri/*.java'
+    - 'tests/src/test/java/org/osgi/test/**'
 
   comment: always
