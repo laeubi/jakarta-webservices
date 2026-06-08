@@ -23,6 +23,16 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>**/integration/**</exclude>
+            <exclude>**/org/osgi/test/**</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+      <plugin>
         <groupId>biz.aQute.bnd</groupId>
         <artifactId>bnd-maven-plugin</artifactId>
         <executions>
@@ -34,7 +44,8 @@
             <configuration>
               <bnd>
               <![CDATA[
-                Test-Cases: ${classes;CONCRETE;PUBLIC;NAMED;*TestCase*}
+                Test-Cases: ${classes;CONCRETE;PUBLIC;NAMED;*TestCase*}, \
+                  ${classes;CONCRETE;PUBLIC;NAMED;*Tests}
                 Fragment-Host: org.eclipse.osgi-technology.webservices.org.eclipse.osgi.technology.webservices.tests
               ]]>
               </bnd>
@@ -69,6 +80,7 @@
               <bndruns>
                 <include>test.bndrun</include>
                 <include>whiteboard.bndrun</include>
+                <include>tck.bndrun</include>
               </bndruns>
               <resolve>true</resolve>
               <failOnChanges>false</failOnChanges>
