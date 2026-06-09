@@ -47,7 +47,6 @@
                 Test-Cases: ${classes;CONCRETE;PUBLIC;NAMED;*TestCase*}, \
                   ${classes;CONCRETE;PUBLIC;NAMED;*Tests}
                 Fragment-Host: org.eclipse.osgi-technology.webservices.org.eclipse.osgi.technology.webservices.tests
-                DynamicImport-Package: jakarta.xml.bind.annotation
               ]]>
               </bnd>
             </configuration>
