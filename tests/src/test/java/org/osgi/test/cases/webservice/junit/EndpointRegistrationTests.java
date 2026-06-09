@@ -31,7 +31,6 @@ import java.util.concurrent.TimeUnit;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -83,7 +82,6 @@ public class EndpointRegistrationTests {
      *
      * @throws Exception
      */
-    @Disabled("Requires TCCL fix for document/literal wrapped JAX-WS endpoints in OSGi — see TCK_CHANGES.md")
     @ParameterizedTest
     @ValueSource(classes = {Object.class, WSEcho.class})
     public void testSimpleWebserviceEndpointRegistration(
