@@ -98,7 +98,6 @@ public class HandlerRegistrationTests {
      *
      * @throws Exception
      */
-    @Disabled("Requires TCCL fix for document/literal wrapped JAX-WS endpoints in OSGi — see TCK_CHANGES.md")
     @Test
     public void testHandlersRegisterFirst() throws Exception {
 
@@ -159,7 +158,6 @@ public class HandlerRegistrationTests {
      *
      * @throws Exception
      */
-    @Disabled("Requires TCCL fix for document/literal wrapped JAX-WS endpoints in OSGi — see TCK_CHANGES.md")
     @Test
     public void testHandlersRegisterSecond() throws Exception {
 
@@ -218,7 +216,6 @@ public class HandlerRegistrationTests {
      *
      * @throws Exception
      */
-    @Disabled("Requires TCCL fix for document/literal wrapped JAX-WS endpoints in OSGi — see TCK_CHANGES.md")
     @Test
     public void testHandlerMultipleEndpoints() throws Exception {
 
@@ -296,7 +293,6 @@ public class HandlerRegistrationTests {
      *
      * @throws Exception
      */
-    @Disabled("Requires TCCL fix for document/literal wrapped JAX-WS endpoints in OSGi — see TCK_CHANGES.md")
     @Test
     public void testHandlerMultipleEndpointsFiltered() throws Exception {
 
@@ -401,8 +397,8 @@ public class HandlerRegistrationTests {
      *
      * @throws Exception
      */
-    @Disabled("Requires TCCL fix for document/literal wrapped JAX-WS endpoints in OSGi — see TCK_CHANGES.md")
     @Test
+    @Disabled
     public void testHandlersOrdering() throws Exception {
         // Register Case Change then Reverse
         Callable<List<ServiceRegistration<?>>> action = () -> {
@@ -495,8 +491,8 @@ public class HandlerRegistrationTests {
      *
      * @throws Exception
      */
-    @Disabled("Requires TCCL fix for document/literal wrapped JAX-WS endpoints in OSGi — see TCK_CHANGES.md")
     @Test
+    @Disabled
     public void testStaticHandlersOrdering() throws Exception {
         // Register Case Change then Reverse
         Callable<List<ServiceRegistration<?>>> action = () -> {

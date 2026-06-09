@@ -9,4 +9,7 @@
  *
  * Contributors: Christoph Läubrich - initial API and implementation
  *******************************************************************************/
+@RequireWebserviceWhiteboard
 package org.eclipse.osgi.technology.webservices.integration.tests;
+
+import org.osgi.service.webservice.whiteboard.annotations.RequireWebserviceWhiteboard;
